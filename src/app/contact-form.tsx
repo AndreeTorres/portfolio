@@ -1,160 +1,143 @@
-"use client";
+import React, { useState } from "react";
 
-import {
-  Typography,
-  Card,
-  CardBody,
-  Radio,
-  Input,
-  Textarea,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
-import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+export default function ContactSection() {
+  const [status, setStatus] = useState(null);
 
-export function ContactForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("Gracias — tu mensaje ha sido preparado (no se envía realmente).");
+    setTimeout(() => setStatus(null), 5000);
+  };
+
   return (
-    <section className="px-8 py-16">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h1" color="blue-gray" className="mb-4">
-          Contact Us
-        </Typography>
-        <Typography
-          variant="lead"
-          className="mx-auto w-full lg:w-5/12 !text-gray-500"
-        >
-          Ready to get started? Feel free to reach out through the contact form,
-          and let&apos;s embark on a journey of innovation and success.
-        </Typography>
-      </div>
-      <div>
-        <Card shadow={true} className="container mx-auto border border-gray/50">
-          <CardBody className="grid grid-cols-1 lg:grid-cols-7 md:gap-10">
-            <div className="w-full col-span-3 rounded-lg h-full py-8 p-5 md:p-16 bg-gray-900">
-              <Typography variant="h4" color="white" className="mb-2">
-                Contact Information
-              </Typography>
-              <Typography
-                variant="lead"
-                className="mx-auto mb-8 text-base !text-gray-500"
+      <section id="contact" className="max-w-5xl mx-auto px-4 py-12">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-extrabold text-gray-900">Contact</h2>
+          <p className="mt-2 text-gray-600">
+            Want to collaborate or discuss an opportunity? Feel free to reach out — I’m happy to chat.
+          </p>
+          <p className="mt-1 text-sm text-gray-700 font-semibold italic">I usually respond within 24–48 hours.</p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden md:flex md:space-x-6">
+          {/* Left info panel */}
+          <aside className="md:w-1/3 bg-gray-800 text-white p-5">
+            <h3 className="text-xl font-semibold">Contact Information</h3>
+            <p className="mt-2 text-gray-300 text-sm">Choose a channel below and I’ll get back to you.</p>
+
+            <nav className="mt-6 space-y-3" aria-label="Contact methods">
+              <a
+                  href="mailto:andreets15@gmail.com"
+                  aria-label="Send email"
+                  className="flex items-center gap-4 p-3 rounded-md hover:bg-gray-700 hover:text-indigo-100 transition-colors"
               >
-                Fill up the form and our Team will get back to you within 24
-                hours.
-              </Typography>
-              <div className="flex gap-5">
-                <PhoneIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  +1(424) 535 3523
-                </Typography>
-              </div>
-              <div className="flex my-2 gap-5">
-                <EnvelopeIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  hello@mail.com
-                </Typography>
-              </div>
-              <div className="flex mb-10 gap-5">
-                <TicketIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  Open Support Ticket
-                </Typography>
-              </div>
-              <div className="flex items-center gap-5">
-                <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-facebook text-lg" />
-                </IconButton>
-                <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-instagram text-lg" />
-                </IconButton>
-                <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-github text-lg" />
-                </IconButton>
-              </div>
-            </div>
-            <div className="w-full mt-8 md:mt-0 md:px-10 col-span-4 h-full p-5">
-              <form action="#">
-                <div className="mb-8 grid gap-4 lg:grid-cols-2">
-                  {/* @ts-ignore */}
-                  <Input
-                    color="gray"
-                    size="lg"
-                    variant="static"
-                    label="First Name"
-                    name="first-name"
-                    placeholder="eg. Lucas"
-                    containerProps={{
-                      className: "!min-w-full mb-3 md:mb-0",
-                    }}
-                  />
-                  {/* @ts-ignore */}
-                  <Input
-                    color="gray"
-                    size="lg"
-                    variant="static"
-                    label="Last Name"
-                    name="last-name"
-                    placeholder="eg. Jones"
-                    containerProps={{
-                      className: "!min-w-full",
-                    }}
-                  />
+              <span className="flex-none">
+                {/* mail icon */}
+                <svg className="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
+                <div className="text-left">
+                  <div className="text-sm font-medium">andreets15@gmail.com</div>
+                  <div className="text-xs text-gray-300">Email</div>
                 </div>
-                {/* @ts-ignore */}
-                <Input
-                  color="gray"
-                  size="lg"
-                  variant="static"
-                  label="Email"
-                  name="first-name"
-                  placeholder="eg. lucas@mail.com"
-                  containerProps={{
-                    className: "!min-w-full mb-8",
-                  }}
+              </a>
+
+              <a
+                  href="tel:+50378826383"
+                  aria-label="Call or WhatsApp"
+                  className="flex items-center gap-4 p-3 rounded-md hover:bg-gray-700 hover:text-indigo-100 transition-colors"
+              >
+              <span className="flex-none">
+                {/* phone icon */}
+                <svg className="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.2a1 1 0 01.9.55l1.2 2.4a1 1 0 01-.2 1.05L7.6 9.6a11.05 11.05 0 005.8 5.8l1.6-1.6a1 1 0 011.05-.2l2.4 1.2a1 1 0 01.55.9V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                </svg>
+              </span>
+                <div className="text-left">
+                  <div className="text-sm font-medium">+503 7882 6383</div>
+                  <div className="text-xs text-gray-300">Phone / WhatsApp</div>
+                </div>
+              </a>
+
+              <a
+                  href="https://github.com/AndreeTorres"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open GitHub profile"
+                  className="flex items-center gap-4 p-3 rounded-md hover:bg-gray-700 hover:text-indigo-100 transition-colors"
+              >
+              <span className="flex-none">
+                {/* github icon */}
+                <svg className="w-6 h-6 text-indigo-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.49 2.87 8.31 6.84 9.66.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1.01.07 1.54 1.06 1.54 1.06.9 1.55 2.36 1.1 2.94.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.4 9.4 0 0112 6.8c.85.004 1.71.115 2.51.338 1.9-1.32 2.74-1.05 2.74-1.05.56 1.42.21 2.47.11 2.73.64.72 1.03 1.63 1.03 2.75 0 3.95-2.35 4.82-4.59 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.25 10.25 0 0022 12.22C22 6.58 17.52 2 12 2z" />
+                </svg>
+              </span>
+                <div className="text-left">
+                  <div className="text-sm font-medium">github.com/AndreeTorres</div>
+                  <div className="text-xs text-gray-300">GitHub</div>
+                </div>
+              </a>
+            </nav>
+          </aside>
+
+          {/* Right form panel */}
+          <div className="md:flex-1 p-6 bg-white">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your full name"
+                    className="mt-2 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                 />
-                <Typography
-                  variant="lead"
-                  className="!text-blue-gray-500 text-sm mb-2"
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    className="mt-2 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Tell me about your project, idea, or opportunity."
+                    className="mt-2 block w-full rounded-md border-gray-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                />
+              </div>
+
+              <div className="flex flex-col md:flex-row items-center md:justify-between gap-3">
+                <button
+                    type="submit"
+                    className="w-full md:w-auto inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 transition-colors"
                 >
-                  What are you interested on?
-                </Typography>
-                <div className="-ml-3 mb-14 ">
-                  {/* @ts-ignore */}
-                  <Radio
-                    color="gray"
-                    name="type"
-                    label="Design"
-                    defaultChecked
-                  />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Development" />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Support" />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Other" />
-                </div>
-                {/* @ts-ignore */}
-                <Textarea
-                  color="gray"
-                  size="lg"
-                  variant="static"
-                  label="Your Message"
-                  name="first-name"
-                  containerProps={{
-                    className: "!min-w-full mb-8",
-                  }}
-                />
-                <div className="w-full flex justify-end">
-                  <Button className="w-full md:w-fit" color="gray" size="md">
-                    Send message
-                  </Button>
-                </div>
-              </form>
-            </div>
-          </CardBody>
-        </Card>
-      </div>
-    </section>
+                  Send Message
+                </button>
+                <p className="text-sm text-gray-600 font-semibold">I usually respond within 24–48 hours.</p>
+              </div>
+
+              {status && (
+                  <div className="mt-2 text-sm text-green-600" role="status">
+                    {status}
+                  </div>
+              )}
+            </form>
+          </div>
+        </div>
+      </section>
   );
 }
-
-export default ContactForm;

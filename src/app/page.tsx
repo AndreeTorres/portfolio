@@ -1,16 +1,13 @@
 // components
 import {Navbar, Footer} from "@/components";
 
-// sections
-import Skills from "./skills";
 import Projects from "./projects";
-import Resume from "./resume";
-import Testimonial from "./testimonial";
-import PopularClients from "./popular-clients";
-import ContactForm from "./contact-form";
 import HeroSection from "@/app/Hero";
 import AboutSection from "@/app/aboutMe";
 import SkillsSection from "@/app/newSkills";
+import ExperienceSection from "@/components/ExperienceSection";
+import EducationSection from "../../components/EducationSection";
+import ContactSection from "../../components/ContactSection";
 
 export default function Portfolio() {
     return (
@@ -20,10 +17,9 @@ export default function Portfolio() {
             <AboutSection/>
             <SkillsSection/>
             <Projects/>
-            <Resume/>
-            <Testimonial/>
-            <PopularClients/>
-            <ContactForm/>
+            <ExperienceSection/>
+            <EducationSection/>
+            <ContactSection/>
             <Footer/>
         </>
     );
