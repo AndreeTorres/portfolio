@@ -11,9 +11,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
+  title: "Andreé Torres - Web Developer Portfolio",
   description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    "Welcome to the professional portfolio of Andreé Torres, a skilled developer specializing on backend. Explore my projects, skills, and experience in web development.",
 };
 
 export default function RootLayout({
